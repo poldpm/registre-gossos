@@ -1,7 +1,7 @@
 // Service Worker: permet que l'app funcioni sense connexió a internet.
 // Quan canviïs els fitxers de l'app, incrementa CACHE_NAME perquè
 // els mòbils descarreguin la nova versió.
-const CACHE_NAME = 'registre-gossos-v1';
+const CACHE_NAME = 'registre-gossos-v3';
 
 const ARXIUS = [
   './',
@@ -10,7 +10,8 @@ const ARXIUS = [
   './app.js',
   './manifest.json',
   './icons/icon-192.png',
-  './icons/icon-512.png'
+  './icons/icon-512.png',
+  './images/logo-parc.png'
 ];
 
 // Instal·lació: desa tots els arxius de l'app a la memòria cau
