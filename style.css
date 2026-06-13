@@ -34,7 +34,9 @@ header {
 
 header h1 {
   margin: 0;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
+  flex: 1;
+  text-align: center;
 }
 
 .icon-btn {
@@ -261,4 +263,9 @@ label {
   margin-top: 12px;
   font-size: 0.9rem;
   color: #555;
+}
+.logo-parc {
+  height: 36px;
+  width: auto;
+  display: block;
 }
