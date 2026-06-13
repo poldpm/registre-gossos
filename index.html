@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Registre de gossos - Parc Natural</title>
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#2e7d32">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <h1>🐾 Registre de gossos</h1>
+  <button id="btnConfig" class="icon-btn" title="Configuració">⚙️</button>
+</header>
+
+<!-- PANTALLA: introduir nom (primer cop) -->
+<section id="screen-nom" class="screen">
+  <div class="card">
+    <h2>Benvingut/da!</h2>
+    <p>Com et dius? (apareixerà als registres)</p>
+    <input type="text" id="inputNom" placeholder="El teu nom">
+    <button class="btn btn-primary" id="btnGuardarNom">Continuar</button>
+  </div>
+</section>
+
+<!-- PANTALLA PRINCIPAL -->
+<section id="screen-main" class="screen">
+  <div class="status-bar">
+    <span id="estatConnexio" class="badge">●</span>
+    <span id="infoNom"></span>
+    <span id="pendents" class="badge pendents"></span>
+  </div>
+
+  <div class="counters">
+    <div class="counter"><span class="num" id="countLligats">0</span><span class="label">Lligats avui</span></div>
+    <div class="counter"><span class="num" id="countDeslligats">0</span><span class="label">Deslligats avui</span></div>
+  </div>
+
+  <p class="instruccio">Quin gos has trobat?</p>
+
+  <div class="big-buttons">
+    <button class="big-btn lligat" id="btnLligat">
+      <span class="emoji">🟢</span>
+      <span>GOS LLIGAT</span>
+    </button>
+    <button class="big-btn deslligat" id="btnDeslligat">
+      <span class="emoji">🔴</span>
+      <span>GOS DESLLIGAT</span>
+    </button>
+  </div>
+
+  <div id="ultimRegistre" class="ultim-registre"></div>
+</section>
+
+<!-- PANTALLA: gos deslligat -> resposta de l'amo -->
+<section id="screen-deslligat" class="screen">
+  <h2>El gos anava deslligat</h2>
+  <p class="instruccio">Què ha passat amb l'amo?</p>
+
+  <div class="big-buttons vertical">
+    <button class="big-btn accept" data-resposta="Acceptat">
+      <span class="emoji">✅</span>
+      <span>Ha acceptat i l'ha lligat</span>
+    </button>
+    <button class="big-btn noaccept" data-resposta="No acceptat">
+      <span class="emoji">❌</span>
+      <span>No vol lligar-lo</span>
+    </button>
+    <button class="big-btn noavisat" data-resposta="No avisat">
+      <span class="emoji">🤷</span>
+      <span>No s'ha pogut avisar</span>
+    </button>
+  </div>
+
+  <button class="btn btn-secondary" id="btnCancelarDeslligat">← Cancel·la</button>
+</section>
+
+<!-- PANTALLA: configuració -->
+<section id="screen-config" class="screen">
+  <div class="card">
+    <h2>Configuració</h2>
+    <label>El teu nom</label>
+    <input type="text" id="configNom">
+
+    <label>Registres pendents de sincronitzar</label>
+    <p id="configPendents">0</p>
+    <button class="btn btn-secondary" id="btnSincronitzarAra">🔄 Sincronitza ara</button>
+
+    <button class="btn btn-primary" id="btnTancarConfig" style="margin-top:24px;">Tancar</button>
+  </div>
+</section>
+
+<div id="toast" class="toast"></div>
+
+<script src="app.js"></script>
+</body>
+</html>

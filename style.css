@@ -1,0 +1,264 @@
+:root {
+  --verd: #2e7d32;
+  --verd-fosc: #1b5e20;
+  --vermell: #c62828;
+  --taronja: #ef6c00;
+  --gris: #757575;
+  --fons: #f4f6f4;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  background: var(--fons);
+  color: #222;
+  -webkit-tap-highlight-color: transparent;
+  height: 100%;
+}
+
+header {
+  background: var(--verd);
+  color: white;
+  padding: 14px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  padding-top: max(14px, env(safe-area-inset-top));
+}
+
+header h1 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.icon-btn {
+  background: rgba(255,255,255,0.15);
+  border: none;
+  color: white;
+  font-size: 1.3rem;
+  border-radius: 50%;
+  width: 42px;
+  height: 42px;
+  cursor: pointer;
+}
+
+.screen {
+  display: none;
+  padding: 16px;
+  max-width: 480px;
+  margin: 0 auto;
+  padding-bottom: 60px;
+}
+
+.screen.active {
+  display: block;
+  animation: fadein 0.15s ease-in;
+}
+
+@keyframes fadein {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.card {
+  background: white;
+  border-radius: 16px;
+  padding: 24px;
+  margin-top: 24px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  text-align: center;
+}
+
+.card h2 { margin-top: 0; }
+
+input[type="text"] {
+  width: 100%;
+  font-size: 1.1rem;
+  padding: 14px;
+  margin: 12px 0;
+  border: 2px solid #ddd;
+  border-radius: 10px;
+}
+
+.btn {
+  display: block;
+  width: 100%;
+  padding: 16px;
+  font-size: 1.1rem;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  margin-top: 12px;
+}
+
+.btn-primary {
+  background: var(--verd);
+  color: white;
+}
+
+.btn-secondary {
+  background: #e0e0e0;
+  color: #333;
+}
+
+.status-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 16px 0 8px 0;
+  font-size: 0.9rem;
+  color: var(--gris);
+}
+
+.badge {
+  background: #e0e0e0;
+  border-radius: 20px;
+  padding: 4px 10px;
+  font-size: 0.85rem;
+}
+
+#estatConnexio {
+  color: var(--verd);
+}
+#estatConnexio.offline {
+  color: var(--vermell);
+}
+
+.pendents {
+  margin-left: auto;
+  background: var(--taronja);
+  color: white;
+}
+.pendents.zero {
+  background: #e0e0e0;
+  color: #777;
+}
+
+.counters {
+  display: flex;
+  gap: 12px;
+  margin: 12px 0 24px 0;
+}
+
+.counter {
+  flex: 1;
+  background: white;
+  border-radius: 12px;
+  padding: 16px;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+.counter .num {
+  display: block;
+  font-size: 2.2rem;
+  font-weight: 700;
+}
+
+.counter .label {
+  font-size: 0.85rem;
+  color: var(--gris);
+}
+
+.instruccio {
+  text-align: center;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 20px 0;
+  color: #444;
+}
+
+.big-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.big-btn {
+  border: none;
+  border-radius: 18px;
+  padding: 28px 16px;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  text-align: left;
+  transition: transform 0.05s ease;
+}
+
+.big-btn:active {
+  transform: scale(0.97);
+}
+
+.big-btn .emoji {
+  font-size: 2rem;
+}
+
+.big-btn.lligat { background: var(--verd); }
+.big-btn.deslligat { background: var(--vermell); }
+.big-btn.accept { background: var(--verd); }
+.big-btn.noaccept { background: var(--vermell); }
+.big-btn.noavisat { background: var(--gris); }
+
+.big-buttons.vertical .big-btn {
+  font-size: 1.15rem;
+  padding: 22px 16px;
+}
+
+.ultim-registre {
+  margin-top: 28px;
+  text-align: center;
+  color: var(--gris);
+  font-size: 0.95rem;
+  min-height: 1.4em;
+}
+
+.toast {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  background: #2e2e2e;
+  color: white;
+  padding: 12px 22px;
+  border-radius: 30px;
+  font-size: 0.95rem;
+  opacity: 0;
+  transition: all 0.25s ease;
+  pointer-events: none;
+  z-index: 100;
+  text-align: center;
+  max-width: 90%;
+}
+
+.toast.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+#configPendents {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin: 4px 0 16px 0;
+}
+
+label {
+  display: block;
+  text-align: left;
+  font-weight: 600;
+  margin-top: 12px;
+  font-size: 0.9rem;
+  color: #555;
+}
