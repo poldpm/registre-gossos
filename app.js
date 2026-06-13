@@ -161,9 +161,9 @@ async function trySync() {
 // ---------- Esdeveniments ----------
 document.getElementById('btnGuardarNom').addEventListener('click', () => {
   const v = document.getElementById('inputNom').value.trim();
-  if (!v) { toast('Escriu el teu nom'); return; }
+  if (!v) { toast('Escriu el nom de la zona'); return; }
   setNom(v);
-  document.getElementById('infoNom').textContent = '👤 ' + v;
+  document.getElementById('infoNom').textContent = '📍 ' + v;
   showScreen('main');
 });
 
@@ -195,7 +195,7 @@ document.getElementById('btnConfig').addEventListener('click', () => {
 document.getElementById('btnTancarConfig').addEventListener('click', () => {
   const v = document.getElementById('configNom').value.trim();
   if (v) setNom(v);
-  document.getElementById('infoNom').textContent = '👤 ' + getNom();
+  document.getElementById('infoNom').textContent = '📍 ' + getNom();
   showScreen('main');
 });
 
@@ -211,7 +211,7 @@ function init() {
   updateConnexioIndicator();
 
   if (getNom()) {
-    document.getElementById('infoNom').textContent = '👤 ' + getNom();
+    document.getElementById('infoNom').textContent = '📍 ' + getNom();
     showScreen('main');
   } else {
     showScreen('nom');
