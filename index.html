@@ -13,17 +13,20 @@
 
 <header>
   <img src="images/logo-parc.png" alt="Logo Parc Natural" class="logo-parc">
-  <h1><span class="titol-curt"> </span><span class="titol-llarg">🐾 Registre de gossos</span></h1>
+  <h1><span class="titol-curt"> </span><span class="titol-llarg">Registre de gossos</span></h1>
   <button id="btnConfig" class="icon-btn" title="Configuració">⚙️</button>
 </header>
 
 <!-- PANTALLA: introduir nom (primer cop) -->
 <section id="screen-nom" class="screen">
   <div class="card">
-    <h2>Benvingut/da!</h2>
-    <p>Com et dius? (apareixerà als registres)</p>
-    <input type="text" id="inputNom" placeholder="El teu nom">
+    <h2>Configuració de la tablet</h2>
+    <p>Zona itinerant de la tablet? (p. ex. Vall de Núria, Vallter, Queralbs...)</p>
+    <input type="text" id="inputNom" placeholder="Nom de la zona">
     <button class="btn btn-primary" id="btnGuardarNom">Continuar</button>
+    <p style="font-size:0.85rem; color:#888; margin-top:8px;">
+      Aquest nom només s'haurà d'escriure un cop per tablet.
+    </p>
   </div>
 </section>
 
@@ -44,11 +47,9 @@
 
   <div class="big-buttons">
     <button class="big-btn lligat" id="btnLligat">
-      <span class="emoji">🟢</span>
       <span>GOS LLIGAT</span>
     </button>
     <button class="big-btn deslligat" id="btnDeslligat">
-      <span class="emoji">🔴</span>
       <span>GOS DESLLIGAT</span>
     </button>
   </div>
@@ -59,19 +60,16 @@
 <!-- PANTALLA: gos deslligat -> resposta de l'amo -->
 <section id="screen-deslligat" class="screen">
   <h2>El gos anava deslligat</h2>
-  <p class="instruccio">Què ha passat amb l'amo?</p>
+  <p class="instruccio">Reacció de l'humà</p>
 
   <div class="big-buttons vertical">
     <button class="big-btn accept" data-resposta="Acceptat">
-      <span class="emoji">✅</span>
       <span>Ha acceptat i l'ha lligat</span>
     </button>
     <button class="big-btn noaccept" data-resposta="No acceptat">
-      <span class="emoji">❌</span>
       <span>No vol lligar-lo</span>
     </button>
     <button class="big-btn noavisat" data-resposta="No avisat">
-      <span class="emoji">🤷</span>
       <span>No s'ha pogut avisar</span>
     </button>
   </div>
@@ -83,7 +81,7 @@
 <section id="screen-config" class="screen">
   <div class="card">
     <h2>Configuració</h2>
-    <label>El teu nom</label>
+    <label>Zona d'aquesta tablet</label>
     <input type="text" id="configNom">
 
     <label>Registres pendents de sincronitzar</label>
