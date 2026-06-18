@@ -160,8 +160,8 @@ async function trySync() {
 
 // ---------- Esdeveniments ----------
 document.getElementById('btnGuardarNom').addEventListener('click', () => {
-  const v = document.getElementById('inputNom').value.trim();
-  if (!v) { toast('Escriu el nom de la zona'); return; }
+  const v = document.getElementById('inputNom').value;
+  if (!v) { toast('Selecciona la zona abans de continuar'); return; }
   setNom(v);
   document.getElementById('infoNom').textContent = '📍 ' + v;
   showScreen('main');
@@ -187,15 +187,22 @@ document.querySelectorAll('#screen-deslligat [data-resposta]').forEach(btn => {
 });
 
 document.getElementById('btnConfig').addEventListener('click', () => {
-  document.getElementById('configNom').value = getNom();
+  // pre-selecciona la zona guardada al desplegable de configuració
+  const select = document.getElementById('configNom');
+  const zonaActual = getNom();
+  Array.from(select.options).forEach(opt => {
+    opt.selected = opt.value === zonaActual;
+  });
   updateCounters();
   showScreen('config');
 });
 
 document.getElementById('btnTancarConfig').addEventListener('click', () => {
-  const v = document.getElementById('configNom').value.trim();
-  if (v) setNom(v);
-  document.getElementById('infoNom').textContent = '📍 ' + getNom();
+  const v = document.getElementById('configNom').value;
+  if (v) {
+    setNom(v);
+    document.getElementById('infoNom').textContent = '📍 ' + v;
+  }
   showScreen('main');
 });
 
