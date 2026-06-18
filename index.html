@@ -13,19 +13,31 @@
 
 <header>
   <img src="images/logo-parc.png" alt="Logo Parc Natural" class="logo-parc">
-  <h1><span class="titol-curt"> </span><span class="titol-llarg">Registre de gossos</span></h1>
-  <button id="btnConfig" class="icon-btn" title="Configuració">⚙️</button>
+  <h1><span class="titol-curt">🐾</span><span class="titol-llarg">🐾 Registre de gossos</span></h1>
+  <button id="btnConfig" class="icon-btn" title="Configuració">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="white" aria-hidden="true">
+      <path d="M19.14 12.94c.04-.3.06-.61.06-.94s-.02-.64-.07-.94l2.03-1.58a.49.49 0 0 0 .12-.61l-1.92-3.32a.49.49 0 0 0-.59-.22l-2.39.96a7.01 7.01 0 0 0-1.62-.94l-.36-2.54A.48.48 0 0 0 14 2h-4a.48.48 0 0 0-.48.41l-.36 2.54a7.08 7.08 0 0 0-1.61.94l-2.39-.96a.48.48 0 0 0-.59.22L2.65 8.47a.47.47 0 0 0 .12.61l2.03 1.58c-.05.3-.07.62-.07.94s.02.64.07.94l-2.03 1.58a.47.47 0 0 0-.12.61l1.92 3.32c.12.22.37.3.59.22l2.39-.96c.5.36 1.04.67 1.62.94l.36 2.54c.06.28.31.48.6.48h4c.28 0 .53-.2.59-.47l.36-2.54a7.07 7.07 0 0 0 1.61-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32a.47.47 0 0 0-.12-.61l-2.01-1.58zM12 15.6A3.6 3.6 0 1 1 12 8.4a3.6 3.6 0 0 1 0 7.2z"/>
+    </svg>
+  </button>
 </header>
 
 <!-- PANTALLA: introduir nom (primer cop) -->
 <section id="screen-nom" class="screen">
   <div class="card">
     <h2>Configuració de la tablet</h2>
-    <p>Zona itinerant de la tablet? (p. ex. Vall de Núria, Vallter, Queralbs...)</p>
-    <input type="text" id="inputNom" placeholder="Nom de la zona">
+    <p>Quina zona itinerarà aquesta tablet?</p>
+    <select id="inputNom" class="select-zona">
+      <option value="">— Selecciona la zona —</option>
+      <option>AI Collada Fonda</option>
+      <option>AI Coll de Meianell</option>
+      <option>AI Núria</option>
+      <option>AI Ulldeter</option>
+      <option>AI Queralbs - Daió</option>
+      <option>AI Queralbs - Fontalba</option>
+    </select>
     <button class="btn btn-primary" id="btnGuardarNom">Continuar</button>
     <p style="font-size:0.85rem; color:#888; margin-top:8px;">
-      Aquest nom només s'haurà d'escriure un cop per tablet.
+      Aquesta selecció només s'haurà de fer un cop per tablet.
     </p>
   </div>
 </section>
@@ -47,9 +59,11 @@
 
   <div class="big-buttons">
     <button class="big-btn lligat" id="btnLligat">
+      <span class="emoji">🟢</span>
       <span>GOS LLIGAT</span>
     </button>
     <button class="big-btn deslligat" id="btnDeslligat">
+      <span class="emoji">🔴</span>
       <span>GOS DESLLIGAT</span>
     </button>
   </div>
@@ -60,16 +74,19 @@
 <!-- PANTALLA: gos deslligat -> resposta de l'amo -->
 <section id="screen-deslligat" class="screen">
   <h2>El gos anava deslligat</h2>
-  <p class="instruccio">Reacció de l'humà</p>
+  <p class="instruccio">Què ha passat amb l'amo?</p>
 
   <div class="big-buttons vertical">
     <button class="big-btn accept" data-resposta="Acceptat">
+      <span class="emoji">✅</span>
       <span>Ha acceptat i l'ha lligat</span>
     </button>
     <button class="big-btn noaccept" data-resposta="No acceptat">
+      <span class="emoji">❌</span>
       <span>No vol lligar-lo</span>
     </button>
     <button class="big-btn noavisat" data-resposta="No avisat">
+      <span class="emoji">🤷</span>
       <span>No s'ha pogut avisar</span>
     </button>
   </div>
@@ -82,7 +99,15 @@
   <div class="card">
     <h2>Configuració</h2>
     <label>Zona d'aquesta tablet</label>
-    <input type="text" id="configNom">
+    <select id="configNom" class="select-zona">
+      <option value="">— Selecciona la zona —</option>
+      <option>AI Collada Fonda</option>
+      <option>AI Coll de Meianell</option>
+      <option>AI Núria</option>
+      <option>AI Ulldeter</option>
+      <option>AI Queralbs - Daió</option>
+      <option>AI Queralbs - Fontalba</option>
+    </select>
 
     <label>Registres pendents de sincronitzar</label>
     <p id="configPendents">0</p>
